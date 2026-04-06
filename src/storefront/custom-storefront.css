@@ -1,0 +1,6 @@
+/**
+ * Checkout Geo Flash for Ecwid does not require extra CSS.
+ *
+ * The storefront script injects its own toast styles so merchants can deploy a
+ * single JavaScript asset. Keep this file only for optional storefront tweaks.
+ */

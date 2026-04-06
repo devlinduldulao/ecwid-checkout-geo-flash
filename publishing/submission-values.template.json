@@ -1,0 +1,20 @@
+{
+  "appPageUrl": "https://YOUR-STATIC-HOST/public/index.html",
+  "supportUrl": "https://YOUR-DOMAIN/support",
+  "supportEmail": "support@YOUR-DOMAIN",
+  "privacyPolicyUrl": "https://YOUR-DOMAIN/privacy",
+  "termsOfServiceUrl": "https://YOUR-DOMAIN/terms",
+  "appId": "custom-app-132959256-1",
+  "scopes": [
+    "read_store_profile",
+    "update_store_profile",
+    "customize_storefront"
+  ],
+  "notes": [
+    "Copy these values into publishing/listing-metadata.json before submission.",
+    "Use the same deployed host when replacing __CGF_STATIC_HOST__ in the generated storefront snippet.",
+    "Keep status as draft until the production URLs and final branding assets are ready.",
+    "Do not place Ecwid secret tokens or the client secret in this file, in browser code, or in GitHub Actions for this static app architecture.",
+    "Rotate any previously exposed Ecwid secret token or client secret before public launch."
+  ]
+}

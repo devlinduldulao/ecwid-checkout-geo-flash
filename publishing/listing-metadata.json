@@ -1,0 +1,35 @@
+{
+  "appName": "Checkout Geo Flash",
+  "tagline": "Merchant-controlled purchase notification styling for Ecwid stores.",
+  "category": "Marketing",
+  "status": "draft",
+  "ecwidAppId": "custom-app-132959256-1",
+  "scopes": [
+    "read_store_profile",
+    "update_store_profile",
+    "customize_storefront"
+  ],
+  "appPageUrl": "https://your-static-host.example/public/index.html",
+  "supportUrl": "https://your-domain.example/support",
+  "supportEmail": "support@example.com",
+  "privacyPolicyUrl": "https://your-domain.example/privacy",
+  "termsOfServiceUrl": "https://your-domain.example/terms",
+  "shortDescription": "Configure privacy-safe purchase notification styling from a native Ecwid merchant dashboard.",
+  "longDescription": "Checkout Geo Flash is a marketing-focused Ecwid app that lets merchants configure privacy-safe purchase notification UI from a native Ecwid dashboard. Store owners can control message content, timing, location label behavior, and runtime mode, preview changes safely inside the admin, and publish those settings to the storefront through Ecwid App Storage without running a custom backend.",
+  "knownLimitations": [
+    "No cross-visitor live event feed without a backend event collector.",
+    "Owner preview uses fake sample data only."
+  ],
+  "assets": {
+    "icon": "assets/marketplace/icon.png",
+    "banner": "assets/marketplace/banner.png",
+    "dashboardScreenshot": "assets/marketplace/screenshot-dashboard.png",
+    "previewScreenshot": "assets/marketplace/screenshot-preview.png",
+    "editableSources": {
+      "icon": "assets/marketplace/icon.svg",
+      "banner": "assets/marketplace/banner.svg",
+      "dashboardScreenshot": "assets/marketplace/screenshot-dashboard.svg",
+      "previewScreenshot": "assets/marketplace/screenshot-preview.svg"
+    }
+  }
+}

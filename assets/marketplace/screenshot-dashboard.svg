@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Dashboard screenshot placeholder</title>
+  <desc id="desc">Illustrated dashboard view for publishing preparation.</desc>
+  <rect width="1280" height="800" fill="#eef5f7" />
+  <rect x="70" y="60" width="1140" height="120" rx="28" fill="#fffaf1" stroke="#d6dde6" />
+  <text x="120" y="115" font-family="Arial, sans-serif" font-size="20" letter-spacing="4" fill="#8b5e34">MERCHANT DASHBOARD</text>
+  <text x="120" y="155" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#102033">Checkout Geo Flash for Ecwid</text>
+  <rect x="70" y="220" width="520" height="470" rx="24" fill="#ffffff" stroke="#d6dde6" />
+  <rect x="620" y="220" width="590" height="470" rx="24" fill="#ffffff" stroke="#d6dde6" />
+  <text x="110" y="275" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#102033">Merchant Controls</text>
+  <text x="660" y="275" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#102033">Owner Preview</text>
+  <rect x="110" y="315" width="440" height="52" rx="12" fill="#f7fafc" stroke="#d6dde6" />
+  <rect x="110" y="395" width="440" height="52" rx="12" fill="#f7fafc" stroke="#d6dde6" />
+  <rect x="110" y="475" width="210" height="52" rx="12" fill="#f7fafc" stroke="#d6dde6" />
+  <rect x="340" y="475" width="210" height="52" rx="12" fill="#f7fafc" stroke="#d6dde6" />
+  <rect x="660" y="315" width="500" height="260" rx="22" fill="#eff4f7" stroke="#cfd9df" stroke-dasharray="8 10" />
+  <rect x="760" y="440" width="320" height="95" rx="18" fill="#fff8ef" stroke="#d6dde6" />
+  <text x="785" y="478" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#8b5e34">OWNER PREVIEW</text>
+  <text x="785" y="514" font-family="Arial, sans-serif" font-size="20" fill="#102033">Someone from Austin just paid for Weekend Tote.</text>
+</svg>

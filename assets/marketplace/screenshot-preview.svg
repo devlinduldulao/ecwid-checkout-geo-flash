@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Owner preview screenshot placeholder</title>
+  <desc id="desc">Illustrated owner preview view for publishing preparation.</desc>
+  <rect width="1280" height="800" fill="#f7f4ea" />
+  <rect x="120" y="90" width="1040" height="620" rx="28" fill="#ffffff" stroke="#d6dde6" />
+  <text x="180" y="170" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#8b5e34">OWNER-ONLY PREVIEW</text>
+  <text x="180" y="225" font-family="Arial, sans-serif" font-size="46" font-weight="700" fill="#102033">Safe fake-data simulation inside the dashboard</text>
+  <rect x="180" y="290" width="920" height="250" rx="24" fill="#eff4f7" stroke="#cfd9df" stroke-dasharray="8 10" />
+  <rect x="700" y="410" width="320" height="95" rx="18" fill="#fff8ef" stroke="#d6dde6" />
+  <text x="725" y="448" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#8b5e34">OWNER PREVIEW</text>
+  <text x="725" y="484" font-family="Arial, sans-serif" font-size="20" fill="#102033">Thank you for ordering Desk Lamp #1003.</text>
+  <rect x="180" y="585" width="250" height="54" rx="16" fill="#102033" />
+  <text x="214" y="620" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#fff8ef">Stop owner preview</text>
+</svg>

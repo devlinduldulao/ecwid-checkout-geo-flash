@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Geo Flash Ecwid Preview</title>
+  <style>
+    body {
+      background: #f3f4f6;
+      color: #1d1e21;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 28px;
+    }
+
+    .cgf-preview {
+      margin: 0 auto;
+      max-width: 1120px;
+    }
+
+    .cgf-banner {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(29, 30, 33, 0.05);
+      margin-bottom: 24px;
+      padding: 24px 28px;
+    }
+
+    .cgf-banner h1 {
+      font-size: 28px;
+      margin: 0 0 10px;
+      color: #1d1e21;
+    }
+
+    .cgf-banner p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 70ch;
+    }
+
+    .cgf-banner code {
+      background: #1d1e21;
+      color: #f3f4f6;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="cgf-preview">
+    <section class="cgf-banner">
+      <h1>Checkout Geo Flash Ecwid Preview</h1>
+      <p>
+        Replace each <code>STORE_ID</code> and <code>your-ecwid-app-id</code> placeholder before testing against a live Ecwid store.
+        This preview injects sample public config directly, so you can validate the no-server storefront behavior without opening the admin page.
+      </p>
+    </section>
+
+    <div id="my-store-STORE_ID"></div>
+  </div>
+
+  <script>
+    window.CheckoutGeoFlashEcwid = {
+      appId: 'your-ecwid-app-id',
+      publicConfig: {
+        enabled: true,
+        mode: 'hybrid',
+        locationMode: 'city',
+        fallbackLocationLabel: 'Nearby',
+        rotateIntervalMs: 3200,
+        visibleDurationMs: 5000,
+        samples: [
+          { productName: 'Weekend Tote', location: 'Austin', event: 'paid' },
+          { productName: 'Desk Lamp', location: 'Berlin', event: 'checkout' },
+          { productName: 'Trail Bottle', location: 'Osaka', event: 'paid' }
+        ]
+      }
+    };
+  </script>
+  <script>
+    window.ec = window.ec || [];
+    window.ec.push(['set', 'ProductBrowser', 'id', 'my-store-STORE_ID']);
+    window.ec.push(['set', 'ProductBrowser', 'views', 'grid(20,3) list(60) table(60)']);
+    window.ec.push(['set', 'ProductBrowser', 'categoryView', 'grid']);
+    window.ec.push(['set', 'ProductBrowser', 'searchView', 'list']);
+  </script>
+  <script src="https://app.ecwid.com/script.js?STORE_ID&data_platform=code&data_date=2026-03-19" charset="utf-8"></script>
+  <script>xProductBrowser();</script>
+  <script src="/src/storefront/custom-storefront.js"></script>
+</body>
+</html>

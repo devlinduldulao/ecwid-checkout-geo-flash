@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout Geo Flash for Ecwid</title>
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.20/ecwid-app-ui.css">
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.9/ecwid-app.js"></script>
+  <style>
+    :root {
+      --cgf-ink: #1d1e21; /* Lightspeed Charcoal */
+      --cgf-muted: #6b7280;
+      --cgf-line: #e2e8f0;
+      --cgf-surface: #ffffff;
+      --cgf-bg: #f3f4f6;
+    }
+
+    body {
+      background: var(--cgf-bg);
+      color: var(--cgf-ink);
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .cgf-shell {
+      display: grid;
+      gap: 24px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .cgf-hero {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: 0 2px 8px rgba(29, 30, 33, 0.04);
+    }
+
+    .cgf-kicker {
+      color: var(--cgf-muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+
+    .cgf-title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--cgf-ink);
+    }
+
+    .cgf-subtitle {
+      color: var(--cgf-muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 12px 0 0;
+      max-width: 62ch;
+    }
+
+    .cgf-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .cgf-card {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(29, 30, 33, 0.04);
+      overflow: hidden;
+    }
+
+    .cgf-card__header {
+      border-bottom: 1px solid var(--cgf-line);
+      padding: 20px 24px 16px;
+    }
+
+    .cgf-card__title {
+      font-size: 18px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--cgf-ink);
+    }
+
+    .cgf-card__subtitle {
+      color: var(--cgf-muted);
+      font-size: 13px;
+      margin: 4px 0 0;
+    }
+
+    .cgf-card__body {
+      display: grid;
+      gap: 20px;
+      padding: 24px;
+    }
+
+    .cgf-inline-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .field-label {
+      color: var(--cgf-muted);
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .field-label--muted {
+      color: var(--cgf-muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .field-input {
+      appearance: none;
+      background: var(--cgf-surface);
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      box-sizing: border-box;
+      color: var(--cgf-ink);
+      display: block;
+      font: inherit;
+      line-height: 1.4;
+      min-height: 44px;
+      padding: 11px 14px;
+      transition: border-color 140ms ease, box-shadow 140ms ease, background-color 140ms ease;
+      width: 100%;
+    }
+
+    .field-input:hover {
+      border-color: #94a3b8;
+    }
+
+    .field-input:focus {
+      border-color: var(--cgf-ink);
+      box-shadow: 0 0 0 3px rgba(29, 30, 33, 0.08);
+      outline: none;
+    }
+
+    select.field-input {
+      background-image: linear-gradient(45deg, transparent 50%, var(--cgf-muted) 50%), linear-gradient(135deg, var(--cgf-muted) 50%, transparent 50%);
+      background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 12px) calc(50% - 2px);
+      background-repeat: no-repeat;
+      background-size: 6px 6px, 6px 6px;
+      padding-right: 38px;
+    }
+
+    .field-toggle {
+      align-items: center;
+      background: var(--cgf-bg);
+      border: 1px solid var(--cgf-line);
+      border-radius: 10px;
+      cursor: pointer;
+      display: grid;
+      gap: 14px;
+      grid-template-columns: auto 1fr;
+      padding: 14px 16px;
+      transition: border-color 140ms ease, background-color 140ms ease, box-shadow 140ms ease;
+    }
+
+    .field-toggle:hover {
+      border-color: #cbd5e1;
+    }
+
+    .field-toggle:focus-within {
+      border-color: var(--cgf-ink);
+      box-shadow: 0 0 0 3px rgba(29, 30, 33, 0.08);
+    }
+
+    .field-toggle input {
+      appearance: none;
+      background: #cbd5e1;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      height: 24px;
+      margin: 0;
+      position: relative;
+      transition: background-color 140ms ease;
+      width: 42px;
+    }
+
+    .field-toggle input::before {
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.18);
+      content: '';
+      height: 18px;
+      left: 3px;
+      position: absolute;
+      top: 3px;
+      transition: transform 140ms ease;
+      width: 18px;
+    }
+
+    .field-toggle input:checked {
+      background: var(--cgf-ink);
+    }
+
+    .field-toggle input:checked::before {
+      transform: translateX(18px);
+    }
+
+    .field-toggle__body {
+      color: var(--cgf-ink);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .btn {
+      appearance: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      min-height: 40px;
+      padding: 0 16px;
+      transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, border-color 120ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-default {
+      background: var(--cgf-surface);
+      border: 1px solid #cbd5e1;
+      color: var(--cgf-ink);
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+
+    .btn-default:hover {
+      border-color: #94a3b8;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    }
+
+    .btn-default:focus-visible {
+      outline: 3px solid rgba(29, 30, 33, 0.08);
+      outline-offset: 2px;
+    }
+
+    .a-alert {
+      border: 1px solid var(--cgf-line);
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 12px 14px;
+    }
+
+    .a-alert--success {
+      background: #f5f7f5;
+      border-color: #cdd9cf;
+      color: #1f3b24;
+    }
+
+    .a-alert--warning {
+      background: #faf7f0;
+      border-color: #e7d9b4;
+      color: #6c5120;
+    }
+
+    .a-alert--error {
+      background: #fff5f5;
+      border-color: #efcaca;
+      color: #7f1d1d;
+    }
+
+    .cgf-note {
+      background: var(--cgf-bg);
+      border-left: 3px solid var(--cgf-ink);
+      border-radius: 0 4px 4px 0;
+      color: var(--cgf-ink);
+      font-size: 13px;
+      line-height: 1.5;
+      padding: 12px 16px;
+    }
+
+    .cgf-actions {
+      align-items: center;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .cgf-actions--split {
+      justify-content: space-between;
+    }
+
+    .cgf-textarea {
+      min-height: 170px;
+      resize: vertical;
+      width: 100%;
+    }
+
+    .cgf-code {
+      background: #1d1e21; /* Lightspeed Charcoal for code blocks */
+      border: 0;
+      border-radius: 6px;
+      color: #f3f4f6;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      min-height: 190px;
+      padding: 16px;
+      resize: vertical;
+      width: 100%;
+    }
+
+    .cgf-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .cgf-stat-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    .cgf-stat {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 6px;
+      padding: 16px;
+    }
+
+    .cgf-stat__label {
+      color: var(--cgf-muted);
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cgf-stat__value {
+      font-size: 14px;
+      color: var(--cgf-ink);
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .cgf-preview-stage {
+      align-items: end;
+      background: var(--cgf-bg);
+      border: 1px dashed var(--cgf-line);
+      border-radius: 6px;
+      display: flex;
+      min-height: 220px;
+      padding: 24px;
+    }
+
+    .cgf-preview-empty {
+      color: var(--cgf-muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+      max-width: 42ch;
+    }
+
+    .cgf-preview-toast {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(29, 30, 33, 0.08); /* Minimal charcoal shadow */
+      max-width: 360px;
+      overflow: hidden;
+      padding: 16px;
+      width: 100%;
+    }
+
+    .cgf-preview-toast__eyebrow {
+      color: var(--cgf-muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin: 0 0 6px;
+      text-transform: uppercase;
+    }
+
+    .cgf-preview-toast__title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0;
+      color: var(--cgf-ink);
+    }
+
+    .cgf-steps {
+      color: var(--cgf-muted);
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .cgf-steps li {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body data-app-id="checkout-geo-flash">
+  <div class="cgf-shell">
+    <section class="cgf-hero">
+      <p class="cgf-kicker">Merchant dashboard</p>
+      <h1 class="cgf-title">Checkout Geo Flash for Ecwid</h1>
+      <p class="cgf-subtitle">
+        This app is built for the Ecwid business owner inside the admin dashboard. It lets the merchant configure
+        Checkout Geo Flash, preview the notification style safely, and publish privacy-safe settings without running
+        a custom Node.js server, database, or cache.
+      </p>
+    </section>
+
+    <div id="connection-state"></div>
+
+    <div class="cgf-grid">
+      <section class="cgf-card">
+        <div class="cgf-card__header">
+          <h2 class="cgf-card__title">Merchant Controls</h2>
+          <p class="cgf-card__subtitle">Store-owner settings saved in Ecwid App Storage and applied to the storefront runtime.</p>
+        </div>
+        <div class="cgf-card__body">
+          <div>
+            <label class="field-label" for="app-id">Ecwid app ID</label>
+            <input class="field-input cgf-mono" id="app-id" placeholder="checkout-geo-flash">
+          </div>
+
+          <label class="field-toggle active">
+            <input type="checkbox" id="feature-enabled" checked>
+            <div class="field-toggle__body">Enable Checkout Geo Flash for this store</div>
+          </label>
+
+          <div class="cgf-inline-grid">
+            <div>
+              <label class="field-label" for="feature-mode">Runtime mode</label>
+              <select class="field-input" id="feature-mode">
+                <option value="sample-loop">Sample loop only</option>
+                <option value="hybrid">Sample loop + own order confirmation</option>
+                <option value="order-confirmation">Own order confirmation only</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="field-label" for="location-mode">Location label mode</label>
+              <select class="field-input" id="location-mode">
+                <option value="city">City-style labels</option>
+                <option value="country">Country-style labels</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="field-label" for="fallback-location-label">Fallback location label</label>
+            <input class="field-input" id="fallback-location-label" placeholder="Nearby">
+          </div>
+
+          <div class="cgf-inline-grid">
+            <div>
+              <label class="field-label" for="rotate-interval-ms">Sample rotation interval</label>
+              <input class="field-input" id="rotate-interval-ms" type="number" min="2000" max="15000" step="100" value="3200">
+            </div>
+            <div>
+              <label class="field-label" for="visible-duration-ms">Toast visible duration</label>
+              <input class="field-input" id="visible-duration-ms" type="number" min="2500" max="12000" step="100" value="5000">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cgf-card">
+        <div class="cgf-card__header">
+          <h2 class="cgf-card__title">Owner Preview</h2>
+          <p class="cgf-card__subtitle">Preview notification copy and motion safely in the dashboard.</p>
+        </div>
+        <div class="cgf-card__body">
+          <div class="cgf-note">
+            This preview is only for the business owner. It uses sample content from the form below and never exposes test traffic to shoppers.
+          </div>
+
+          <div class="cgf-actions cgf-actions--split">
+            <div class="cgf-actions">
+              <button id="preview-toggle" class="btn btn-default btn-medium" type="button">Start owner preview</button>
+              <div id="preview-status" class="field-label--muted">Preview stopped.</div>
+            </div>
+            <button id="save-btn" class="btn btn-default btn-medium">Save To Ecwid</button>
+          </div>
+
+          <div id="preview-stage" class="cgf-preview-stage" aria-live="polite"></div>
+
+          <div>
+            <label class="field-label" for="sample-lines">Sample lines</label>
+            <textarea class="field-input cgf-textarea" id="sample-lines"></textarea>
+          </div>
+
+          <div id="status-message"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="cgf-grid">
+      <section class="cgf-card">
+        <div class="cgf-card__header">
+          <h2 class="cgf-card__title">Store Status</h2>
+          <p class="cgf-card__subtitle">Current merchant context from the Ecwid admin iframe.</p>
+        </div>
+        <div class="cgf-card__body">
+          <div class="cgf-stat-grid">
+            <div class="cgf-stat">
+              <span class="cgf-stat__label">Store ID</span>
+              <div class="cgf-stat__value cgf-mono" id="current-store-id">Not connected</div>
+            </div>
+            <div class="cgf-stat">
+              <span class="cgf-stat__label">App ID</span>
+              <div class="cgf-stat__value cgf-mono" id="current-app-id">checkout-geo-flash</div>
+            </div>
+          </div>
+
+          <div class="cgf-note">
+            Settings are stored under the Ecwid App Storage <span class="cgf-mono">public</span> key so the storefront runtime can read only the fields it needs.
+          </div>
+        </div>
+      </section>
+
+      <section class="cgf-card">
+        <div class="cgf-card__header">
+          <h2 class="cgf-card__title">Merchant Setup</h2>
+          <p class="cgf-card__subtitle">Steps the store owner or implementer follows from the dashboard.</p>
+        </div>
+        <div class="cgf-card__body">
+          <ol class="cgf-steps">
+            <li>Connect this page inside the Ecwid admin so the app can load the store payload.</li>
+            <li>Adjust the sample copy, location mode, and runtime behavior for this store.</li>
+            <li>Save settings to Ecwid App Storage.</li>
+            <li>Install the storefront runtime using the snippet below or automatic app injection.</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+
+    <section class="cgf-card">
+      <div class="cgf-card__header">
+        <h2 class="cgf-card__title">Installation Snippet</h2>
+        <p class="cgf-card__subtitle">Owner-facing setup output for attaching the runtime to the storefront after configuration.</p>
+      </div>
+      <div class="cgf-card__body">
+        <div class="cgf-note">
+          This app lives in the merchant dashboard. The snippet below is only the final installation step that applies the saved settings to the storefront.
+        </div>
+        <textarea class="cgf-code" id="storefront-snippet" readonly></textarea>
+      </div>
+    </section>
+  </div>
+
+  <script src="/src/shared/checkout-geo-flash-shared.js"></script>
+  <script src="/src/shared/dashboard-preview.js"></script>
+  <script src="/src/admin/app.js"></script>
+</body>
+</html>

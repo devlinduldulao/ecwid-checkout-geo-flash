@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1544 500" role="img" aria-labelledby="title desc">
+  <title id="title">Checkout Geo Flash banner</title>
+  <desc id="desc">Placeholder marketing banner for the Ecwid merchant dashboard app.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102033" />
+      <stop offset="100%" stop-color="#1f4e5f" />
+    </linearGradient>
+  </defs>
+  <rect width="1544" height="500" fill="url(#bg)" />
+  <circle cx="1270" cy="120" r="180" fill="#fff8ef" opacity="0.1" />
+  <circle cx="1380" cy="340" r="120" fill="#d87b2d" opacity="0.18" />
+  <text x="108" y="170" font-family="Arial, sans-serif" font-size="34" letter-spacing="5" fill="#d9b38c">ECWID MERCHANT DASHBOARD</text>
+  <text x="108" y="250" font-family="Arial, sans-serif" font-size="86" font-weight="700" fill="#fff8ef">Checkout Geo Flash</text>
+  <text x="108" y="320" font-family="Arial, sans-serif" font-size="30" fill="#d7e2e7">Configure, preview, and publish privacy-safe notification UI without running your own backend.</text>
+  <rect x="108" y="365" width="360" height="70" rx="16" fill="#fff8ef" />
+  <text x="138" y="410" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#102033">Owner preview included</text>
+</svg>
