@@ -1,0 +1,36 @@
+{
+  "appName": "Checkout Geo Flash for Ecwid",
+  "tagline": "Merchant-controlled purchase notification styling for Ecwid stores.",
+  "shortDescription": "Configure privacy-safe purchase notification styling from a native Ecwid merchant dashboard.",
+  "category": "Marketing",
+  "hostBaseUrl": "https://devlinduldulao.github.io/ecwid-checkout-geo-flash",
+  "businessName": "Configured marketplace publisher",
+  "supportEmail": "",
+  "supportResponseWindow": "Reply within 2 business days",
+  "supportTimezone": "UTC",
+  "supportUrl": "/public/support.html",
+  "privacyPolicyUrl": "/public/privacy.html",
+  "termsOfServiceUrl": "/public/terms.html",
+  "demoUrl": "/public/index.html",
+  "legalEffectiveDate": "2026-04-06",
+  "privacyContactBlurb": "Contact the support channel listed in the live marketplace listing for privacy and data requests.",
+  "termsWarrantyBlurb": "This app is provided as described in the active marketplace listing and any separate merchant agreement published with the app.",
+  "screenshots": [
+    "assets/marketplace/screenshot-dashboard.png",
+    "assets/marketplace/screenshot-preview.png"
+  ],
+  "assets": {
+    "iconSource": "assets/marketplace/icon.svg",
+    "iconPng": "assets/marketplace/icon.png",
+    "listingBannerSource": "assets/marketplace/banner.svg",
+    "listingBannerPng": "assets/marketplace/banner.png"
+  },
+  "technicalNotes": {
+    "hosting": "Static HTTPS hosting via GitHub Pages",
+    "backendRequired": false,
+    "databaseRequired": false,
+    "redisRequired": false,
+    "primarySurface": "Merchant dashboard",
+    "storefrontBehavior": "Merchant-configured purchase notification runtime that reads Ecwid public app config on the storefront"
+  }
+}

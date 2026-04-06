@@ -134,7 +134,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for a deep dive into the archit
 
 ## Publishing
 
-See [docs/PUBLISHING.md](docs/PUBLISHING.md) for the submission checklist, [publishing/listing-metadata.json](publishing/listing-metadata.json) for the draft listing metadata scaffold, [publishing/ecwid-reviewer-answers.md](publishing/ecwid-reviewer-answers.md) for reviewer-facing technical answers, [publishing/final-publish-checklist.md](publishing/final-publish-checklist.md) for launch prep, and `assets/marketplace/` for the current marketplace artwork.
+See [docs/PUBLISHING.md](docs/PUBLISHING.md) for the submission checklist, [config/publishing-profile.json](config/publishing-profile.json) for the consolidated publishing profile used by this repo, [publishing/listing-metadata.json](publishing/listing-metadata.json) for the draft listing metadata scaffold, [publishing/ecwid-reviewer-answers.md](publishing/ecwid-reviewer-answers.md) for reviewer-facing technical answers, [publishing/final-publish-checklist.md](publishing/final-publish-checklist.md) for launch prep, and `assets/marketplace/` for the current marketplace artwork.
 
 ## Development
 
