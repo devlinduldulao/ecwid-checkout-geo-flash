@@ -17,6 +17,23 @@ No Docker, PM2, Redis, or backend process is required.
 
 Before deploying, run `npm run build` and publish the generated `dist/` folder.
 
+## GitHub Pages via GitHub Actions
+
+This repository already includes `.github/workflows/deploy-pages.yml` for free GitHub Pages hosting.
+
+1. Open the repository on GitHub.
+2. Go to Settings → Pages.
+3. Set the source to GitHub Actions.
+4. Push to `main`, or manually run the Deploy GitHub Pages workflow from the Actions tab.
+
+For this repository, GitHub Pages publishes under the project URL:
+
+- `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/`
+
+The Ecwid admin iframe page should therefore be configured as:
+
+- `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html`
+
 ## What must be public
 
 Expose these static files over HTTPS:

@@ -52,7 +52,7 @@ This repo now includes two GitHub Actions workflows:
 - `.github/workflows/ci.yml`: installs dependencies, builds `dist/`, runs lint, runs tests, and uploads the build artifact
 - `.github/workflows/deploy-pages.yml`: builds the app and deploys `dist/` to GitHub Pages on pushes to `main`
 
-To use GitHub Pages deployment, enable Pages in the repository settings and select GitHub Actions as the source.
+To use GitHub Pages deployment, enable Pages in the repository settings and select GitHub Actions as the source. For this repository, the live URL will be `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/` after the workflow completes.
 
 ## Ecwid requirements
 
@@ -96,6 +96,14 @@ Outside Ecwid admin, the settings page runs in preview mode only. Saving require
 ## Deployment
 
 Deploy the repo to any static host such as GitHub Pages, Netlify, Cloudflare Pages, or Vercel static output.
+
+For GitHub Pages specifically:
+
+1. Open GitHub repository settings for `devlinduldulao/ecwid-checkout-geo-flash`.
+2. Go to Pages.
+3. Set Source to GitHub Actions.
+4. Push to `main` or run `.github/workflows/deploy-pages.yml` manually from the Actions tab.
+5. Use `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html` as the Ecwid app page URL.
 
 If you want a clean deploy artifact, upload the contents of `dist/` after running `npm run build`.
 

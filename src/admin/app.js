@@ -309,10 +309,18 @@
       window.location.origin &&
       window.location.origin !== 'null'
     ) {
-      return window.location.origin;
+      return window.location.origin + getDeploymentBasePath();
     }
 
     return '__CGF_STATIC_HOST__';
+  }
+
+  function getDeploymentBasePath() {
+    if (!window.location || !window.location.pathname) {
+      return '';
+    }
+
+    return window.location.pathname.replace(/\/public(?:\/index\.html)?$/, '');
   }
 
   function updateStorefrontSnippet() {

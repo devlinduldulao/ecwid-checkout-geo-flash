@@ -91,6 +91,21 @@ test('dashboard shows local preview warning when EcwidApp is unavailable', async
   dom.window.close();
 });
 
+test('dashboard storefront snippet keeps the repository base path on GitHub Pages', async function () {
+  const dom = createDom({
+    url: 'https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html?appId=checkout-geo-flash',
+  });
+
+  await flush();
+
+  assert.match(
+    dom.window.document.getElementById('storefront-snippet').value,
+    /https:\/\/devlinduldulao\.github\.io\/ecwid-checkout-geo-flash\/src\/storefront\/custom-storefront\.js/
+  );
+
+  dom.window.close();
+});
+
 test('owner preview toggle renders fake data in the dashboard', async function () {
   const dom = createDom();
   const document = dom.window.document;

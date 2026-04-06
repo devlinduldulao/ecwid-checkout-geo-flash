@@ -34,3 +34,15 @@ test('buildStaticSite copies entries and writes metadata files', function () {
   const metadata = JSON.parse(fs.readFileSync(path.join(distRoot, 'build-meta.json'), 'utf8'));
   assert.deepEqual(metadata.files, ['public', 'src', 'assets']);
 });
+
+test('public html entry points use relative asset paths for GitHub Pages project deployments', function () {
+  const dashboardHtml = fs.readFileSync(path.join(__dirname, '..', 'public', 'index.html'), 'utf8');
+  const storefrontHtml = fs.readFileSync(path.join(__dirname, '..', 'public', 'storefront-test.html'), 'utf8');
+
+  assert.match(dashboardHtml, /<script src="\.\.\/src\/shared\/checkout-geo-flash-shared\.js"><\/script>/);
+  assert.match(dashboardHtml, /<script src="\.\.\/src\/shared\/dashboard-preview\.js"><\/script>/);
+  assert.match(dashboardHtml, /<script src="\.\.\/src\/admin\/app\.js"><\/script>/);
+  assert.match(storefrontHtml, /<script src="\.\.\/src\/storefront\/custom-storefront\.js"><\/script>/);
+  assert.doesNotMatch(dashboardHtml, /<script src="\/src\//);
+  assert.doesNotMatch(storefrontHtml, /<script src="\/src\//);
+});
