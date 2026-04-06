@@ -47,10 +47,11 @@ npm test
 
 ## GitHub Actions
 
-This repo now includes two GitHub Actions workflows:
+This repo now includes three GitHub Actions workflows:
 
 - `.github/workflows/ci.yml`: installs dependencies, builds `dist/`, runs lint, runs tests, and uploads the build artifact
-- `.github/workflows/deploy-pages.yml`: builds the app and deploys `dist/` to GitHub Pages on pushes to `main`
+- `.github/workflows/deploy-pages.yml`: builds the app and deploys `dist/` to GitHub Pages on pushes to `main` or `master`
+- `.github/workflows/release.yml`: builds the app, creates `checkout-geo-flash-ecwid-dist.zip`, uploads it as an Actions artifact, and attaches it to GitHub Releases for tags matching `v*`
 
 To use GitHub Pages deployment, enable Pages in the repository settings and select GitHub Actions as the source. For this repository, the live URL will be `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/` after the workflow completes.
 
@@ -104,6 +105,12 @@ For GitHub Pages specifically:
 3. Set Source to GitHub Actions.
 4. Push to `main` or run `.github/workflows/deploy-pages.yml` manually from the Actions tab.
 5. Use `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html` as the Ecwid app page URL.
+
+For GitHub release artifacts:
+
+1. Create and push a tag such as `v0.1.0`.
+2. Let `.github/workflows/release.yml` build the package.
+3. Download `checkout-geo-flash-ecwid-dist.zip` from the workflow artifact or the GitHub Release asset.
 
 If you want a clean deploy artifact, upload the contents of `dist/` after running `npm run build`.
 

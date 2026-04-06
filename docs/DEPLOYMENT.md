@@ -34,6 +34,17 @@ The Ecwid admin iframe page should therefore be configured as:
 
 - `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html`
 
+## GitHub release archive via GitHub Actions
+
+This repository also includes `.github/workflows/release.yml` for downloadable build archives.
+
+1. Create a git tag such as `v0.1.0`.
+2. Push the tag to GitHub.
+3. Let the Release Artifact workflow run.
+4. Download `checkout-geo-flash-ecwid-dist.zip` from the workflow artifact or the GitHub Release page.
+
+This workflow does not publish a website. It packages the built `dist/` output for distribution.
+
 ## What must be public
 
 Expose these static files over HTTPS:
