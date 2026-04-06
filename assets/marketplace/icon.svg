@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Checkout Geo Flash icon</title>
   <desc id="desc">Flat and sophisticated app icon for Checkout Geo Flash.</desc>
-  <rect width="256" height="256" rx="46" fill="#0f172a" />
-  <path d="M128 48 C94 48 68 74 68 108 C68 148 128 208 128 208 C128 208 188 148 188 108 C188 74 162 48 128 48 Z" fill="#3b82f6" />
-  <circle cx="128" cy="103" r="22" fill="#0f172a" />
-  <path d="M132 86 L 116 103 L 128 103 L 124 118 L 140 100 L 128 100 Z" fill="#eab308" />
+  <rect width="512" height="512" rx="92" fill="#0f172a" />
+  <path d="M256 96 C188 96 136 148 136 216 C136 296 256 416 256 416 C256 416 376 296 376 216 C376 148 324 96 256 96 Z" fill="#3b82f6" />
+  <circle cx="256" cy="206" r="44" fill="#0f172a" />
+  <path d="M264 172 L 232 206 L 256 206 L 248 236 L 280 200 L 256 200 Z" fill="#eab308" />
 </svg>

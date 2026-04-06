@@ -4,27 +4,27 @@ const { chromium } = require('playwright');
 
 const ASSETS_DIR = path.resolve(__dirname, '../assets/marketplace');
 
-const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
   <title id="title">Checkout Geo Flash icon</title>
   <desc id="desc">Flat and sophisticated app icon for Checkout Geo Flash.</desc>
-  <rect width="256" height="256" rx="46" fill="#0f172a" />
-  <path d="M128 48 C94 48 68 74 68 108 C68 148 128 208 128 208 C128 208 188 148 188 108 C188 74 162 48 128 48 Z" fill="#3b82f6" />
-  <circle cx="128" cy="103" r="22" fill="#0f172a" />
-  <path d="M132 86 L 116 103 L 128 103 L 124 118 L 140 100 L 128 100 Z" fill="#eab308" />
+  <rect width="512" height="512" rx="92" fill="#0f172a" />
+  <path d="M256 96 C188 96 136 148 136 216 C136 296 256 416 256 416 C256 416 376 296 376 216 C376 148 324 96 256 96 Z" fill="#3b82f6" />
+  <circle cx="256" cy="206" r="44" fill="#0f172a" />
+  <path d="M264 172 L 232 206 L 256 206 L 248 236 L 280 200 L 256 200 Z" fill="#eab308" />
 </svg>`;
 
-const bannerSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1544 500" role="img" aria-labelledby="title desc">
+const bannerSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 538" role="img" aria-labelledby="title desc">
   <title id="title">Checkout Geo Flash Banner</title>
   <desc id="desc">Clean flat banner for Checkout Geo Flash</desc>
-  <rect width="1544" height="500" fill="#0f172a" />
-  <g transform="translate(190, 80)">
+  <rect width="1024" height="538" fill="#0f172a" />
+  <g transform="translate(100, 90)">
     <!-- Icon part -->
     <path d="M128 48 C94 48 68 74 68 108 C68 148 128 208 128 208 C128 208 188 148 188 108 C188 74 162 48 128 48 Z" fill="#3b82f6" transform="translate(0, 40) scale(1.5)" />
     <circle cx="128" cy="103" r="22" fill="#0f172a" transform="translate(0, 40) scale(1.5)" />
     <path d="M132 86 L 116 103 L 128 103 L 124 118 L 140 100 L 128 100 Z" fill="#eab308" transform="translate(0, 40) scale(1.5)" />
   </g>
-  <text x="640" y="250" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="76" font-weight="700" fill="#ffffff" dominant-baseline="middle">Checkout Geo Flash</text>
-  <text x="640" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="36" font-weight="400" fill="#94a3b8" dominant-baseline="middle">Localized urgency that drives conversions.</text>
+  <text x="440" y="260" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#ffffff" dominant-baseline="middle">Checkout Geo Flash</text>
+  <text x="440" y="320" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="400" fill="#94a3b8" dominant-baseline="middle">Localized urgency that drives conversions.</text>
 </svg>`;
 
 fs.writeFileSync(path.join(ASSETS_DIR, 'icon.svg'), iconSvg);
@@ -38,7 +38,7 @@ async function generatePngs() {
     // Icon
     const iconPath = path.join(ASSETS_DIR, 'icon.svg');
     const iconUrl = 'file://' + iconPath;
-    await page.setViewportSize({ width: 256, height: 256 });
+    await page.setViewportSize({ width: 512, height: 512 });
     await page.goto(iconUrl);
     // wait for network just in case
     await page.waitForTimeout(500);
@@ -49,7 +49,7 @@ async function generatePngs() {
     // Banner
     const bannerPath = path.join(ASSETS_DIR, 'banner.svg');
     const bannerUrl = 'file://' + bannerPath;
-    await page.setViewportSize({ width: 1544, height: 500 });
+    await page.setViewportSize({ width: 1024, height: 538 });
     await page.goto(bannerUrl);
     await page.waitForTimeout(500);
     const bodyBanner = await page.$('svg');
