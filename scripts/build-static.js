@@ -18,23 +18,12 @@ function copyEntry(projectRoot, distRoot, relativePath) {
   fs.cpSync(sourcePath, destinationPath, { recursive: true });
 }
 
-function writeRootIndex(distRoot) {
-  const content = [
-    '<!DOCTYPE html>',
-    '<html lang="en">',
-    '<head>',
-    '  <meta charset="UTF-8">',
-    '  <meta http-equiv="refresh" content="0; url=./public/">',
-    '  <meta name="viewport" content="width=device-width, initial-scale=1.0">',
-    '  <title>Checkout Geo Flash for Ecwid</title>',
-    '</head>',
-    '<body>',
-    '  <p>Redirecting to <a href="./public/">the merchant dashboard</a>…</p>',
-    '</body>',
-    '</html>',
-    '',
-  ].join('\n');
-
+function writeRootIndex(distRoot, projectRoot) {
+  const publicIndex = path.join(projectRoot, 'public', 'index.html');
+  let content = fs.readFileSync(publicIndex, 'utf8');
+  // Adjust relative paths: from public/ the scripts are at ../src/, from root they are at ./src/
+  content = content.replace(/(["'])\.\.\/src\//g, '$1./src/');
+  content = content.replace(/(["'])\.\.\/assets\//g, '$1./assets/');
   fs.writeFileSync(path.join(distRoot, 'index.html'), content, 'utf8');
 }
 
@@ -58,7 +47,7 @@ function buildStaticSite(options) {
   entriesToCopy.forEach(function (relativePath) {
     copyEntry(projectRoot, distRoot, relativePath);
   });
-  writeRootIndex(distRoot);
+  writeRootIndex(distRoot, projectRoot);
   writeBuildMetadata(distRoot, entriesToCopy);
 
   return {
