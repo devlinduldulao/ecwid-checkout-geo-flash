@@ -32,7 +32,7 @@ For this repository, GitHub Pages publishes under the project URL:
 
 The Ecwid admin iframe page should therefore be configured as:
 
-- `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html`
+- `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/`
 
 ## GitHub release archive via GitHub Actions
 
@@ -49,7 +49,7 @@ This workflow does not publish a website. It packages the built `dist/` output f
 
 Expose these static files over HTTPS:
 
-- `public/index.html`
+- `public/index.html` served via `/public/`
 - `src/admin/app.js`
 - `src/shared/checkout-geo-flash-shared.js`
 - `src/storefront/custom-storefront.js`
@@ -58,7 +58,7 @@ Expose these static files over HTTPS:
 
 Configure your Ecwid app with:
 
-- App page URL: `https://your-static-host.example/public/index.html`
+- App page URL: `https://your-static-host.example/public/`
 - Scopes: `read_store_profile`, `update_store_profile`, `customize_storefront`
 
 If you open the dashboard from a local file instead of a deployed host, the generated storefront snippet uses `__CGF_STATIC_HOST__` as a reminder token. Replace that token with your deployed static host before pasting the snippet into Ecwid.
@@ -82,7 +82,7 @@ Open the admin page, save your config, and copy the generated snippet into:
 1. Run `npm run lint`.
 2. Run `npm test`.
 3. Deploy the repository to static hosting.
-4. Update the Ecwid app page URL to the hosted `public/index.html`.
+4. Update the Ecwid app page URL to the hosted `/public/` path.
 5. Open the admin page inside Ecwid and save the public config once.
 6. Confirm the storefront script can read the public config.
 

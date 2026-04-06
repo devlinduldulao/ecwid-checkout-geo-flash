@@ -11,7 +11,7 @@
   "supportUrl": "/public/support.html",
   "privacyPolicyUrl": "/public/privacy.html",
   "termsOfServiceUrl": "/public/terms.html",
-  "demoUrl": "/public/index.html",
+  "demoUrl": "/public/",
   "legalEffectiveDate": "2026-04-06",
   "privacyContactBlurb": "Contact the support channel listed in the live marketplace listing for privacy and data requests.",
   "termsWarrantyBlurb": "This app is provided as described in the active marketplace listing and any separate merchant agreement published with the app.",

@@ -13,7 +13,7 @@ test('publishing profile points at real local assets and public pages', function
   assert.match(profile.supportUrl, /^\/public\/.+\.html$/);
   assert.match(profile.privacyPolicyUrl, /^\/public\/.+\.html$/);
   assert.match(profile.termsOfServiceUrl, /^\/public\/.+\.html$/);
-  assert.match(profile.demoUrl, /^\/public\/.+\.html$/);
+  assert.match(profile.demoUrl, /^\/public(?:\/|\/.+\.html)$/);
 
   [
     profile.supportUrl,

@@ -1,5 +1,5 @@
 {
-  "appPageUrl": "https://YOUR-STATIC-HOST/public/index.html",
+  "appPageUrl": "https://YOUR-STATIC-HOST/public/",
   "supportUrl": "https://YOUR-DOMAIN/support",
   "supportEmail": "support@YOUR-DOMAIN",
   "privacyPolicyUrl": "https://YOUR-DOMAIN/privacy",

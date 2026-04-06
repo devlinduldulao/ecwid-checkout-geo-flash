@@ -9,7 +9,7 @@
     "update_store_profile",
     "customize_storefront"
   ],
-  "appPageUrl": "https://your-static-host.example/public/index.html",
+  "appPageUrl": "https://your-static-host.example/public/",
   "supportUrl": "https://your-domain.example/support",
   "supportEmail": "support@example.com",
   "privacyPolicyUrl": "https://your-domain.example/privacy",

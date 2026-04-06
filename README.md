@@ -88,7 +88,7 @@ Ecwid.getAppPublicConfig('your-app-id');
 ## Local preview
 
 1. Run `npm run dev`.
-2. Open `http://localhost:5000/public/index.html?appId=your-ecwid-app-id` to preview the dashboard UI.
+2. Open `http://localhost:5000/public/?appId=your-ecwid-app-id` to preview the dashboard UI.
 3. Optionally open `http://localhost:5000/public/storefront-test.html` for developer-only storefront verification.
 4. Replace `STORE_ID` and `your-ecwid-app-id` in the test page only when you need storefront validation.
 
@@ -104,7 +104,7 @@ For GitHub Pages specifically:
 2. Go to Pages.
 3. Set Source to GitHub Actions.
 4. Push to `main` or run `.github/workflows/deploy-pages.yml` manually from the Actions tab.
-5. Use `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/index.html` as the Ecwid app page URL.
+5. Use `https://devlinduldulao.github.io/ecwid-checkout-geo-flash/public/` as the Ecwid app page URL.
 
 For GitHub release artifacts:
 
@@ -116,7 +116,7 @@ If you want a clean deploy artifact, upload the contents of `dist/` after runnin
 
 Then either:
 
-1. Register `public/index.html` as your Ecwid native app page and let the app inject the storefront script.
+1. Register `/public/` as your Ecwid native app page and let the app inject the storefront script.
 2. Or manually paste the generated snippet from the merchant dashboard into Ecwid Design → Custom JavaScript.
 
 ## Feature boundary

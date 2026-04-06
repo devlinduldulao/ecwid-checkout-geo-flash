@@ -31,6 +31,10 @@ test('buildStaticSite copies entries and writes metadata files', function () {
   assert.equal(fs.existsSync(path.join(distRoot, 'index.html')), true);
   assert.equal(fs.existsSync(path.join(distRoot, 'build-meta.json')), true);
 
+  const rootIndex = fs.readFileSync(path.join(distRoot, 'index.html'), 'utf8');
+  assert.match(rootIndex, /url=\.\/public\//);
+  assert.match(rootIndex, /href="\.\/public\/"/);
+
   const metadata = JSON.parse(fs.readFileSync(path.join(distRoot, 'build-meta.json'), 'utf8'));
   assert.deepEqual(metadata.files, ['public', 'src', 'assets']);
 });

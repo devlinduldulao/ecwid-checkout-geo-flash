@@ -14,7 +14,7 @@ Update these values in `publishing/submission-values.template.json` and then cop
 
 Expected app page pattern:
 
-- `https://YOUR-STATIC-HOST/public/index.html`
+- `https://YOUR-STATIC-HOST/public/`
 
 ## 2. Rotate exposed Ecwid secrets
 
@@ -40,7 +40,7 @@ Do not request unused catalog or order-write scopes for this release.
 In the Ecwid app configuration, set:
 
 - App ID: `custom-app-132959256-1`
-- App page URL: your real deployed `/public/index.html`
+- App page URL: your real deployed `/public/`
 
 ## 5. Final marketplace submission pass
 
