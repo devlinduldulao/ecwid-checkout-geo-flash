@@ -364,7 +364,7 @@
     }
 
     .cgf-preview-empty {
-      color: var(--cgf-muted);
+      color: #374151;
       font-size: 14px;
       line-height: 1.6;
       margin: 0;
@@ -413,6 +413,7 @@
   </style>
 </head>
 <body data-app-id="checkout-geo-flash">
+  <main>
   <div class="cgf-shell">
     <section class="cgf-hero">
       <p class="cgf-kicker">Merchant dashboard</p>
@@ -561,6 +562,7 @@
         <div class="cgf-note">
           This app lives in the merchant dashboard. The snippet below is only the final installation step that applies the saved settings to the storefront.
         </div>
+        <label class="field-label" for="storefront-snippet">Storefront installation snippet</label>
         <textarea class="cgf-code" id="storefront-snippet" readonly></textarea>
       </div>
     </section>
@@ -569,5 +571,6 @@
   <script src="../src/shared/checkout-geo-flash-shared.js"></script>
   <script src="../src/shared/dashboard-preview.js"></script>
   <script src="../src/admin/app.js"></script>
+  </main>
 </body>
 </html>
