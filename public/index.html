@@ -410,6 +410,323 @@
     .cgf-steps li {
       line-height: 1.6;
     }
+
+    /* --- Quick Start Guide --- */
+    .cgf-guide {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(29, 30, 33, 0.04);
+      overflow: hidden;
+    }
+
+    .cgf-guide__header {
+      align-items: center;
+      background: #f0fdf4;
+      border-bottom: 1px solid #d1fae5;
+      cursor: pointer;
+      display: flex;
+      gap: 12px;
+      padding: 16px 24px;
+      user-select: none;
+    }
+
+    .cgf-guide__header:hover {
+      background: #ecfdf5;
+    }
+
+    .cgf-guide__icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .cgf-guide__toggle {
+      color: var(--cgf-muted);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-left: auto;
+      text-transform: uppercase;
+    }
+
+    .cgf-guide__body {
+      display: grid;
+      gap: 20px;
+      padding: 24px;
+    }
+
+    .cgf-guide__body[hidden] {
+      display: none;
+    }
+
+    .cgf-guide__steps {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: guide-step;
+    }
+
+    .cgf-guide__step {
+      counter-increment: guide-step;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 32px 1fr;
+      align-items: start;
+    }
+
+    .cgf-guide__step::before {
+      content: counter(guide-step);
+      background: var(--cgf-ink);
+      border-radius: 50%;
+      color: #ffffff;
+      display: grid;
+      font-size: 13px;
+      font-weight: 700;
+      height: 28px;
+      place-items: center;
+      width: 28px;
+    }
+
+    .cgf-guide__step-text {
+      font-size: 14px;
+      line-height: 1.6;
+      padding-top: 3px;
+    }
+
+    .cgf-guide__step-text strong {
+      color: var(--cgf-ink);
+    }
+
+    /* --- Live Status --- */
+    .cgf-live-status {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(29, 30, 33, 0.04);
+      padding: 24px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .cgf-live-status__header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cgf-live-status__title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .cgf-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+
+    .cgf-live-badge--active {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .cgf-live-badge--inactive {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .cgf-live-badge__dot {
+      display: inline-block;
+      height: 7px;
+      width: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .cgf-live-summary {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--cgf-muted);
+      margin: 0;
+    }
+
+    .cgf-live-summary strong {
+      color: var(--cgf-ink);
+    }
+
+    .cgf-live-detail-grid {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .cgf-live-detail {
+      background: var(--cgf-bg);
+      border-radius: 6px;
+      padding: 12px;
+    }
+
+    .cgf-live-detail__label {
+      color: var(--cgf-muted);
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .cgf-live-detail__value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cgf-ink);
+    }
+
+    /* --- Dashboard-only banner --- */
+    .cgf-preview-banner {
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      color: #92400e;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 8px 12px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* --- Field help text --- */
+    .field-help {
+      color: var(--cgf-muted);
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+
+    /* --- Data guide --- */
+    .cgf-data-guide {
+      display: grid;
+      gap: 12px;
+    }
+
+    .cgf-data-guide__item {
+      display: grid;
+      gap: 4px;
+      grid-template-columns: 20px 1fr;
+      font-size: 13px;
+      line-height: 1.5;
+      align-items: start;
+    }
+
+    .cgf-data-guide__icon {
+      font-size: 14px;
+      padding-top: 1px;
+    }
+
+    .cgf-data-guide__text strong {
+      color: var(--cgf-ink);
+    }
+
+    /* --- FAQ --- */
+    .cgf-faq {
+      display: grid;
+      gap: 0;
+    }
+
+    .cgf-faq__item {
+      border-bottom: 1px solid var(--cgf-line);
+    }
+
+    .cgf-faq__item:last-child {
+      border-bottom: none;
+    }
+
+    .cgf-faq__question {
+      appearance: none;
+      background: none;
+      border: none;
+      color: var(--cgf-ink);
+      cursor: pointer;
+      display: flex;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      gap: 12px;
+      justify-content: space-between;
+      line-height: 1.5;
+      padding: 14px 0;
+      text-align: left;
+      width: 100%;
+    }
+
+    .cgf-faq__question:hover {
+      color: #374151;
+    }
+
+    .cgf-faq__arrow {
+      color: var(--cgf-muted);
+      flex-shrink: 0;
+      font-size: 12px;
+      transition: transform 200ms ease;
+    }
+
+    .cgf-faq__question[aria-expanded="true"] .cgf-faq__arrow {
+      transform: rotate(180deg);
+    }
+
+    .cgf-faq__answer {
+      color: var(--cgf-muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0 0 14px;
+    }
+
+    .cgf-faq__answer[hidden] {
+      display: none;
+    }
+
+    /* --- Mode explainer --- */
+    .cgf-mode-explainer {
+      background: var(--cgf-bg);
+      border: 1px solid var(--cgf-line);
+      border-radius: 6px;
+      display: grid;
+      font-size: 13px;
+      gap: 10px;
+      line-height: 1.5;
+      padding: 14px 16px;
+    }
+
+    .cgf-mode-explainer__row {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: auto 1fr;
+    }
+
+    .cgf-mode-explainer__tag {
+      background: var(--cgf-surface);
+      border: 1px solid var(--cgf-line);
+      border-radius: 4px;
+      color: var(--cgf-ink);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 2px 8px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      align-self: start;
+    }
   </style>
 </head>
 <body data-app-id="checkout-geo-flash">
@@ -428,6 +745,93 @@
     </section>
 
     <div id="connection-state"></div>
+
+    <!-- Quick Start Guide -->
+    <div class="cgf-guide" id="quick-start-guide">
+      <div class="cgf-guide__header" id="guide-toggle" role="button" tabindex="0" aria-expanded="true" aria-controls="guide-body">
+        <span class="cgf-guide__icon" aria-hidden="true">&#9889;</span>
+        <strong style="font-size: 15px;">Quick Start Guide — How This App Works</strong>
+        <span class="cgf-guide__toggle" id="guide-toggle-label">Hide</span>
+      </div>
+      <div class="cgf-guide__body" id="guide-body">
+        <p style="font-size: 14px; line-height: 1.6; color: var(--cgf-muted); margin: 0;">
+          <strong style="color: var(--cgf-ink);">Checkout Geo Flash</strong> adds social-proof toast notifications to your storefront.
+          When shoppers browse your store, they see small pop-up messages like
+          <em>"Someone from Austin just paid for Weekend Tote"</em> — creating urgency and trust.
+          <strong style="color: var(--cgf-ink);">This dashboard is where you configure those messages.</strong>
+        </p>
+
+        <ol class="cgf-guide__steps">
+          <li class="cgf-guide__step">
+            <span class="cgf-guide__step-text">
+              <strong>Configure your notifications below.</strong>
+              Choose a runtime mode, write your sample messages, and set timing. These are the messages your shoppers will see.
+            </span>
+          </li>
+          <li class="cgf-guide__step">
+            <span class="cgf-guide__step-text">
+              <strong>Use "Dashboard Preview" to test the look.</strong>
+              The preview runs <em>only in this dashboard</em> and is never visible to shoppers. It lets you see how the toast will appear before going live.
+            </span>
+          </li>
+          <li class="cgf-guide__step">
+            <span class="cgf-guide__step-text">
+              <strong>Save your settings.</strong>
+              Click "Save To Ecwid" to publish your configuration. The storefront runtime reads these settings automatically.
+            </span>
+          </li>
+          <li class="cgf-guide__step">
+            <span class="cgf-guide__step-text">
+              <strong>Your shoppers see real notifications on the storefront.</strong>
+              Once saved and installed, every visitor to your store will see the toast notifications you configured.
+              Check the <strong>Live Storefront Status</strong> panel below to confirm what's active.
+            </span>
+          </li>
+        </ol>
+
+        <div class="cgf-note" style="border-left-color: #15803d;">
+          <strong>Where is my real data?</strong> This app displays social-proof notifications — it is not an analytics tool.
+          To see real order metrics, open <strong>Ecwid Admin → My Sales → Orders</strong>.
+          To track store traffic and conversions, open <strong>Ecwid Admin → Analytics</strong>.
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Storefront Status -->
+    <div class="cgf-live-status" id="live-status">
+      <div class="cgf-live-status__header">
+        <h2 class="cgf-live-status__title">Live Storefront Status</h2>
+        <span class="cgf-live-badge cgf-live-badge--active" id="live-status-badge">
+          <span class="cgf-live-badge__dot"></span>
+          Active
+        </span>
+      </div>
+      <p class="cgf-live-summary" id="live-status-summary">
+        Your storefront is showing <strong>sample notification toasts</strong> to all visitors.
+      </p>
+      <div class="cgf-live-detail-grid" id="live-status-details">
+        <div class="cgf-live-detail">
+          <span class="cgf-live-detail__label">Mode</span>
+          <span class="cgf-live-detail__value" id="live-detail-mode">Sample loop</span>
+        </div>
+        <div class="cgf-live-detail">
+          <span class="cgf-live-detail__label">Sample messages</span>
+          <span class="cgf-live-detail__value" id="live-detail-samples">3 configured</span>
+        </div>
+        <div class="cgf-live-detail">
+          <span class="cgf-live-detail__label">Rotation</span>
+          <span class="cgf-live-detail__value" id="live-detail-rotation">Every 3.2s</span>
+        </div>
+        <div class="cgf-live-detail">
+          <span class="cgf-live-detail__label">Toast visible for</span>
+          <span class="cgf-live-detail__value" id="live-detail-duration">5.0s</span>
+        </div>
+      </div>
+      <div class="cgf-note">
+        This panel shows what is <strong>currently configured</strong> for your live storefront.
+        It updates as you change settings above. After saving, these settings are what every shopper sees.
+      </div>
+    </div>
 
     <div class="cgf-grid">
       <section class="cgf-card">
@@ -454,6 +858,7 @@
                 <option value="hybrid">Sample loop + own order confirmation</option>
                 <option value="order-confirmation">Own order confirmation only</option>
               </select>
+              <p class="field-help">Controls what shoppers see. See mode guide below.</p>
             </div>
 
             <div>
@@ -462,22 +867,42 @@
                 <option value="city">City-style labels</option>
                 <option value="country">Country-style labels</option>
               </select>
+              <p class="field-help">How locations appear in notifications.</p>
+            </div>
+          </div>
+
+          <!-- Mode explainer -->
+          <div class="cgf-mode-explainer" id="mode-explainer">
+            <div class="cgf-mode-explainer__row">
+              <span class="cgf-mode-explainer__tag">Sample loop</span>
+              <span>Shows your pre-written sample messages to all shoppers on a loop. <strong>This is curated social proof you control entirely.</strong></span>
+            </div>
+            <div class="cgf-mode-explainer__row">
+              <span class="cgf-mode-explainer__tag">Hybrid</span>
+              <span>Shows sample messages <em>plus</em> a real order-confirmation toast when a shopper completes checkout.</span>
+            </div>
+            <div class="cgf-mode-explainer__row">
+              <span class="cgf-mode-explainer__tag">Order only</span>
+              <span>Only shows a confirmation toast to the shopper who just placed an order. No sample messages.</span>
             </div>
           </div>
 
           <div>
             <label class="field-label" for="fallback-location-label">Fallback location label</label>
             <input class="field-input" id="fallback-location-label" placeholder="Nearby">
+            <p class="field-help">Shown when a specific city or country is not available.</p>
           </div>
 
           <div class="cgf-inline-grid">
             <div>
               <label class="field-label" for="rotate-interval-ms">Sample rotation interval</label>
               <input class="field-input" id="rotate-interval-ms" type="number" min="2000" max="15000" step="100" value="3200">
+              <p class="field-help">Milliseconds between each sample toast (2,000–15,000).</p>
             </div>
             <div>
               <label class="field-label" for="visible-duration-ms">Toast visible duration</label>
               <input class="field-input" id="visible-duration-ms" type="number" min="2500" max="12000" step="100" value="5000">
+              <p class="field-help">How long each toast stays visible (2,500–12,000 ms).</p>
             </div>
           </div>
         </div>
@@ -485,17 +910,23 @@
 
       <section class="cgf-card">
         <div class="cgf-card__header">
-          <h2 class="cgf-card__title">Owner Preview</h2>
-          <p class="cgf-card__subtitle">Preview notification copy and motion safely in the dashboard.</p>
+          <h2 class="cgf-card__title">Dashboard Preview</h2>
+          <p class="cgf-card__subtitle">Test how notifications look before going live. This preview is only for you.</p>
         </div>
         <div class="cgf-card__body">
+          <div class="cgf-preview-banner" aria-label="Dashboard only notice">
+            &#x1F6AB; Dashboard only — shoppers never see this preview
+          </div>
+
           <div class="cgf-note">
-            This preview is only for the business owner. It uses sample content from the form below and never exposes test traffic to shoppers.
+            This preview uses the sample messages you configured in Merchant Controls.
+            It is <strong>never visible to shoppers</strong>. Its only purpose is to let you check
+            the notification text and timing before saving.
           </div>
 
           <div class="cgf-actions cgf-actions--split">
             <div class="cgf-actions">
-              <button id="preview-toggle" class="btn btn-default btn-medium" type="button">Start owner preview</button>
+              <button id="preview-toggle" class="btn btn-default btn-medium" type="button">Start preview</button>
               <div id="preview-status" class="field-label--muted">Preview stopped.</div>
             </div>
             <button id="save-btn" class="btn btn-default btn-medium">Save To Ecwid</button>
@@ -516,7 +947,40 @@
     <div class="cgf-grid">
       <section class="cgf-card">
         <div class="cgf-card__header">
-          <h2 class="cgf-card__title">Store Status</h2>
+          <h2 class="cgf-card__title">Where to Find Real Data</h2>
+          <p class="cgf-card__subtitle">This app is a display tool, not an analytics platform. Here's where to find real numbers.</p>
+        </div>
+        <div class="cgf-card__body">
+          <div class="cgf-data-guide">
+            <div class="cgf-data-guide__item">
+              <span class="cgf-data-guide__icon" aria-hidden="true">&#128176;</span>
+              <span class="cgf-data-guide__text">
+                <strong>Real order data</strong> — Go to <strong>Ecwid Admin → My Sales → Orders</strong> to see actual purchases, revenue, and buyer details.
+              </span>
+            </div>
+            <div class="cgf-data-guide__item">
+              <span class="cgf-data-guide__icon" aria-hidden="true">&#128200;</span>
+              <span class="cgf-data-guide__text">
+                <strong>Store analytics</strong> — Go to <strong>Ecwid Admin → Analytics</strong> for traffic, conversions, and sales trends.
+              </span>
+            </div>
+            <div class="cgf-data-guide__item">
+              <span class="cgf-data-guide__icon" aria-hidden="true">&#128276;</span>
+              <span class="cgf-data-guide__text">
+                <strong>What this app controls</strong> — The social-proof toast notifications shown on your storefront. Check the <strong>Live Storefront Status</strong> panel above to see your active configuration.
+              </span>
+            </div>
+          </div>
+
+          <div class="cgf-note" style="border-left-color: #2563eb;">
+            <strong>Why no metrics here?</strong> Checkout Geo Flash runs entirely in the browser using Ecwid App Storage — no server, no database, no tracking cookies. This keeps the app free and privacy-friendly. Use Ecwid's built-in analytics for real performance data.
+          </div>
+        </div>
+      </section>
+
+      <section class="cgf-card">
+        <div class="cgf-card__header">
+          <h2 class="cgf-card__title">Store Connection</h2>
           <p class="cgf-card__subtitle">Current merchant context from the Ecwid admin iframe.</p>
         </div>
         <div class="cgf-card__body">
@@ -536,19 +1000,92 @@
           </div>
         </div>
       </section>
+    </div>
 
+    <div class="cgf-grid">
       <section class="cgf-card">
         <div class="cgf-card__header">
-          <h2 class="cgf-card__title">Merchant Setup</h2>
+          <h2 class="cgf-card__title">Setup Checklist</h2>
           <p class="cgf-card__subtitle">Steps the store owner or implementer follows from the dashboard.</p>
         </div>
         <div class="cgf-card__body">
           <ol class="cgf-steps">
-            <li>Connect this page inside the Ecwid admin so the app can load the store payload.</li>
+            <li>Open this page inside the Ecwid admin so the app can load the store payload.</li>
             <li>Adjust the sample copy, location mode, and runtime behavior for this store.</li>
+            <li>Use the dashboard preview to check notification appearance and text.</li>
             <li>Save settings to Ecwid App Storage.</li>
             <li>Install the storefront runtime using the snippet below or automatic app injection.</li>
+            <li>Visit your live storefront to confirm notifications are showing.</li>
           </ol>
+        </div>
+      </section>
+
+      <section class="cgf-card">
+        <div class="cgf-card__header">
+          <h2 class="cgf-card__title">Frequently Asked Questions</h2>
+          <p class="cgf-card__subtitle">Common questions from merchants about Checkout Geo Flash.</p>
+        </div>
+        <div class="cgf-card__body">
+          <div class="cgf-faq" id="faq-list">
+            <div class="cgf-faq__item">
+              <button class="cgf-faq__question" type="button" aria-expanded="false" data-faq="0">
+                Where do I see real metrics and analytics?
+                <span class="cgf-faq__arrow" aria-hidden="true">&#9660;</span>
+              </button>
+              <p class="cgf-faq__answer" hidden>
+                This app creates social-proof notifications — it does not track analytics. For real sales data, open
+                <strong>Ecwid Admin → My Sales → Orders</strong>. For traffic and conversion analytics, open
+                <strong>Ecwid Admin → Analytics</strong>. The "Live Storefront Status" panel in this dashboard shows
+                your current notification configuration at a glance.
+              </p>
+            </div>
+            <div class="cgf-faq__item">
+              <button class="cgf-faq__question" type="button" aria-expanded="false" data-faq="1">
+                Is the Dashboard Preview showing real data?
+                <span class="cgf-faq__arrow" aria-hidden="true">&#9660;</span>
+              </button>
+              <p class="cgf-faq__answer" hidden>
+                No. The Dashboard Preview uses the sample messages you typed in Merchant Controls. It is only visible
+                to you inside this admin page. Shoppers never see the preview. Its purpose is to let you check how
+                the notification looks and reads before you save and go live.
+              </p>
+            </div>
+            <div class="cgf-faq__item">
+              <button class="cgf-faq__question" type="button" aria-expanded="false" data-faq="2">
+                What do my shoppers actually see?
+                <span class="cgf-faq__arrow" aria-hidden="true">&#9660;</span>
+              </button>
+              <p class="cgf-faq__answer" hidden>
+                After you save and install the storefront snippet, shoppers see the toast notifications on your
+                live storefront. In <strong>Sample loop</strong> mode, they see the sample messages you wrote,
+                rotating automatically. In <strong>Hybrid</strong> mode, they also see a confirmation toast after
+                their own order. In <strong>Order confirmation</strong> mode, only the buyer sees a post-purchase toast.
+              </p>
+            </div>
+            <div class="cgf-faq__item">
+              <button class="cgf-faq__question" type="button" aria-expanded="false" data-faq="3">
+                Are the sample messages real purchases?
+                <span class="cgf-faq__arrow" aria-hidden="true">&#9660;</span>
+              </button>
+              <p class="cgf-faq__answer" hidden>
+                In <strong>Sample loop</strong> and <strong>Hybrid</strong> modes, the sample messages are written by you.
+                They are curated social-proof copy — not real purchase events. You control every message.
+                In <strong>Hybrid</strong> and <strong>Order confirmation</strong> modes, the order-confirmation
+                toast is triggered by a real Ecwid checkout event.
+              </p>
+            </div>
+            <div class="cgf-faq__item">
+              <button class="cgf-faq__question" type="button" aria-expanded="false" data-faq="4">
+                Why doesn't this app have a database or server?
+                <span class="cgf-faq__arrow" aria-hidden="true">&#9660;</span>
+              </button>
+              <p class="cgf-faq__answer" hidden>
+                Checkout Geo Flash is designed to be free, privacy-friendly, and zero-maintenance. It uses
+                <strong>Ecwid App Storage</strong> to persist settings and runs entirely in the browser.
+                No server, no database, no tracking cookies, and no recurring hosting costs.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -7,7 +7,7 @@ test('buildPreviewItem returns order confirmation text in order-confirmation mod
   const item = preview.buildPreviewItem({ mode: 'order-confirmation', samples: [] }, 0);
 
   assert.deepEqual(item, {
-    eyebrow: 'Owner preview',
+    eyebrow: 'Dashboard preview',
     title: 'Thank you for ordering Weekend Tote #1001.',
   });
 });
@@ -15,7 +15,7 @@ test('buildPreviewItem returns order confirmation text in order-confirmation mod
 test('buildPreviewItem uses fallback copy when no samples exist', function () {
   const item = preview.buildPreviewItem({ mode: 'sample-loop', fallbackLocationLabel: 'Nearby', samples: [] }, 1);
 
-  assert.equal(item.eyebrow, 'Owner preview');
+  assert.equal(item.eyebrow, 'Dashboard preview');
   assert.equal(item.title, 'Someone from Nearby just purchased a recent product.');
 });
 
@@ -38,6 +38,6 @@ test('buildPreviewItem alternates hybrid mode into order-confirmation copy', fun
 });
 
 test('getPreviewToggleLabel handles both happy and unhappy toggle states', function () {
-  assert.equal(preview.getPreviewToggleLabel(true), 'Stop owner preview');
-  assert.equal(preview.getPreviewToggleLabel(false), 'Start owner preview');
+  assert.equal(preview.getPreviewToggleLabel(true), 'Stop preview');
+  assert.equal(preview.getPreviewToggleLabel(false), 'Start preview');
 });

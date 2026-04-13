@@ -186,7 +186,7 @@
   function buildSampleToast(sample) {
     var eventLabel = sample.event === 'paid' ? 'just paid for' : 'just purchased';
     return {
-      eyebrow: 'Sample notification',
+      eyebrow: 'Recent activity',
       title: 'Someone from ' + sample.location + ' ' + eventLabel + ' ' + sample.productName,
     };
   }

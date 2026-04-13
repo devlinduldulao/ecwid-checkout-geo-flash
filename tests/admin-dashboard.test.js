@@ -29,7 +29,7 @@ function createMarkup() {
     '</select>',
     '<div id="preview-stage"></div>',
     '<div id="preview-status"></div>',
-    '<button id="preview-toggle" type="button">Start owner preview</button>',
+    '<button id="preview-toggle" type="button">Start preview</button>',
     '<input id="rotate-interval-ms" value="3200" />',
     '<textarea id="sample-lines"></textarea>',
     '<button id="save-btn" type="button">Save</button>',
@@ -40,6 +40,15 @@ function createMarkup() {
     '  <option value="city">city</option>',
     '  <option value="country">country</option>',
     '</select>',
+    '<div id="guide-body"></div>',
+    '<div id="guide-toggle" aria-expanded="true"><span id="guide-toggle-label">Hide</span></div>',
+    '<div id="faq-list"></div>',
+    '<span id="live-status-badge" class="cgf-live-badge cgf-live-badge--active"></span>',
+    '<p id="live-status-summary"></p>',
+    '<span id="live-detail-mode"></span>',
+    '<span id="live-detail-samples"></span>',
+    '<span id="live-detail-rotation"></span>',
+    '<span id="live-detail-duration"></span>',
     '</body></html>'
   ].join('');
 }
@@ -115,7 +124,7 @@ test('owner preview toggle renders fake data in the dashboard', async function (
 
   await flush();
 
-  assert.equal(document.getElementById('preview-toggle').textContent, 'Stop owner preview');
+  assert.equal(document.getElementById('preview-toggle').textContent, 'Stop preview');
   assert.match(document.getElementById('preview-stage').textContent, /Austin just paid for Weekend Tote/i);
 
   dom.window.close();
@@ -258,6 +267,89 @@ test('dashboard save shows an unhappy-path error when PUT fails', async function
     dom.window.document.getElementById('status-message').textContent,
     /Unable to save/i
   );
+
+  dom.window.close();
+});
+
+test('live status panel shows active state and configuration summary', async function () {
+  const dom = createDom();
+  const document = dom.window.document;
+
+  await flush();
+
+  assert.match(document.getElementById('live-status-badge').textContent, /Active/i);
+  assert.match(document.getElementById('live-status-summary').textContent, /sample notification toasts/i);
+  assert.equal(document.getElementById('live-detail-mode').textContent, 'Sample loop');
+  assert.match(document.getElementById('live-detail-samples').textContent, /configured/);
+  assert.match(document.getElementById('live-detail-rotation').textContent, /3\.2s/);
+  assert.match(document.getElementById('live-detail-duration').textContent, /5\.0s/);
+
+  dom.window.close();
+});
+
+test('live status panel shows disabled state when feature is off', async function () {
+  const dom = createDom();
+  const document = dom.window.document;
+
+  document.getElementById('feature-enabled').checked = false;
+  document.getElementById('feature-enabled').dispatchEvent(new dom.window.Event('change'));
+
+  await flush();
+
+  assert.match(document.getElementById('live-status-badge').textContent, /Disabled/i);
+  assert.match(document.getElementById('live-status-summary').textContent, /disabled/i);
+
+  dom.window.close();
+});
+
+test('guide toggle collapses and expands the quick start guide', async function () {
+  const dom = createDom();
+  const document = dom.window.document;
+
+  await flush();
+
+  const guideBody = document.getElementById('guide-body');
+  const guideToggle = document.getElementById('guide-toggle');
+
+  assert.equal(guideBody.hidden, false);
+
+  guideToggle.click();
+  assert.equal(guideBody.hidden, true);
+  assert.equal(document.getElementById('guide-toggle-label').textContent, 'Show');
+
+  guideToggle.click();
+  assert.equal(guideBody.hidden, false);
+  assert.equal(document.getElementById('guide-toggle-label').textContent, 'Hide');
+
+  dom.window.close();
+});
+
+test('faq accordion toggles answer visibility', async function () {
+  const dom = createDom();
+  const document = dom.window.document;
+
+  const faqList = document.getElementById('faq-list');
+  faqList.innerHTML = [
+    '<div class="cgf-faq__item">',
+    '  <button class="cgf-faq__question" type="button" aria-expanded="false" data-faq="0">Question?</button>',
+    '  <p class="cgf-faq__answer" hidden>Answer.</p>',
+    '</div>',
+  ].join('');
+
+  await flush();
+
+  const button = faqList.querySelector('.cgf-faq__question');
+  const answer = faqList.querySelector('.cgf-faq__answer');
+
+  assert.equal(answer.hidden, true);
+
+  button.click();
+  assert.equal(button.getAttribute('aria-expanded'), 'true');
+  assert.equal(answer.hidden, false);
+
+  button.click();
+  assert.equal(button.getAttribute('aria-expanded'), 'false');
+  assert.equal(answer.hidden, true);
 
   dom.window.close();
 });

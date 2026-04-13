@@ -18,14 +18,14 @@
 
     if (mode === 'order-confirmation') {
       return {
-        eyebrow: 'Owner preview',
+        eyebrow: 'Dashboard preview',
         title: 'Thank you for ordering Weekend Tote #1001.',
       };
     }
 
     if (!sample) {
       return {
-        eyebrow: 'Owner preview',
+        eyebrow: 'Dashboard preview',
         title: 'Someone from ' + fallbackLocationLabel + ' just purchased a recent product.',
       };
     }
@@ -34,19 +34,19 @@
 
     if (mode === 'hybrid' && Math.abs(previewIndex || 0) % 3 === 2) {
       return {
-        eyebrow: 'Owner preview',
+        eyebrow: 'Dashboard preview',
         title: 'Thank you for ordering ' + sample.productName + ' #100' + ((Math.abs(previewIndex || 0) % 9) + 1) + '.',
       };
     }
 
     return {
-      eyebrow: 'Owner preview',
+      eyebrow: 'Dashboard preview',
       title: 'Someone from ' + sample.location + ' ' + eventLabel + ' ' + sample.productName + '.',
     };
   }
 
   function getPreviewToggleLabel(isPreviewRunning) {
-    return isPreviewRunning ? 'Stop owner preview' : 'Start owner preview';
+    return isPreviewRunning ? 'Stop preview' : 'Start preview';
   }
 
   return {

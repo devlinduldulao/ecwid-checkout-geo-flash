@@ -34,6 +34,16 @@
     currentStoreId: document.getElementById('current-store-id'),
     enabled: document.getElementById('feature-enabled'),
     fallbackLocationLabel: document.getElementById('fallback-location-label'),
+    faqList: document.getElementById('faq-list'),
+    guideBody: document.getElementById('guide-body'),
+    guideToggle: document.getElementById('guide-toggle'),
+    guideToggleLabel: document.getElementById('guide-toggle-label'),
+    liveDetailDuration: document.getElementById('live-detail-duration'),
+    liveDetailMode: document.getElementById('live-detail-mode'),
+    liveDetailRotation: document.getElementById('live-detail-rotation'),
+    liveDetailSamples: document.getElementById('live-detail-samples'),
+    liveStatusBadge: document.getElementById('live-status-badge'),
+    liveStatusSummary: document.getElementById('live-status-summary'),
     mode: document.getElementById('feature-mode'),
     previewStage: document.getElementById('preview-stage'),
     previewStatus: document.getElementById('preview-status'),
@@ -54,6 +64,9 @@
   updateStoreSummary();
   updateStorefrontSnippet();
   renderPreviewStage();
+  updateLiveStatus();
+  initGuideToggle();
+  initFaqAccordion();
 
   if (elements.saveButton) {
     elements.saveButton.addEventListener('click', function () {
@@ -218,6 +231,7 @@
 
   function refreshPreview() {
     updateStorefrontSnippet();
+    updateLiveStatus();
 
     if (state.isPreviewRunning) {
       stopPreviewTimer();
@@ -394,5 +408,97 @@
     var element = document.createElement('div');
     element.appendChild(document.createTextNode(String(value)));
     return element.innerHTML;
+  }
+
+  function updateLiveStatus() {
+    var config = buildConfigFromForm();
+    var modeLabels = {
+      'sample-loop': 'Sample loop',
+      'hybrid': 'Hybrid',
+      'order-confirmation': 'Order confirmation',
+    };
+    var modeSummaries = {
+      'sample-loop': 'Your storefront is showing <strong>sample notification toasts</strong> to all visitors, rotating through your configured messages.',
+      'hybrid': 'Your storefront is showing <strong>sample notifications</strong> to all visitors, plus <strong>real order confirmations</strong> to buyers after checkout.',
+      'order-confirmation': 'Your storefront is showing a <strong>confirmation toast only to the shopper</strong> who just placed an order. No sample messages are displayed.',
+    };
+
+    if (elements.liveStatusBadge) {
+      if (config.enabled) {
+        elements.liveStatusBadge.className = 'cgf-live-badge cgf-live-badge--active';
+        elements.liveStatusBadge.innerHTML = '<span class="cgf-live-badge__dot"></span> Active';
+      } else {
+        elements.liveStatusBadge.className = 'cgf-live-badge cgf-live-badge--inactive';
+        elements.liveStatusBadge.innerHTML = '<span class="cgf-live-badge__dot"></span> Disabled';
+      }
+    }
+
+    if (elements.liveStatusSummary) {
+      if (config.enabled) {
+        elements.liveStatusSummary.innerHTML = modeSummaries[config.mode] || modeSummaries['sample-loop'];
+      } else {
+        elements.liveStatusSummary.innerHTML = 'Checkout Geo Flash is <strong>disabled</strong> for this store. Enable it in Merchant Controls to start showing notifications.';
+      }
+    }
+
+    if (elements.liveDetailMode) {
+      elements.liveDetailMode.textContent = modeLabels[config.mode] || 'Sample loop';
+    }
+
+    if (elements.liveDetailSamples) {
+      var sampleCount = config.samples ? config.samples.length : 0;
+      elements.liveDetailSamples.textContent = sampleCount + ' configured';
+    }
+
+    if (elements.liveDetailRotation) {
+      elements.liveDetailRotation.textContent = 'Every ' + (config.rotateIntervalMs / 1000).toFixed(1) + 's';
+    }
+
+    if (elements.liveDetailDuration) {
+      elements.liveDetailDuration.textContent = (config.visibleDurationMs / 1000).toFixed(1) + 's';
+    }
+  }
+
+  function initGuideToggle() {
+    if (!elements.guideToggle || !elements.guideBody) {
+      return;
+    }
+
+    elements.guideToggle.addEventListener('click', function () {
+      var isOpen = !elements.guideBody.hidden;
+      elements.guideBody.hidden = isOpen;
+      elements.guideToggle.setAttribute('aria-expanded', String(!isOpen));
+
+      if (elements.guideToggleLabel) {
+        elements.guideToggleLabel.textContent = isOpen ? 'Show' : 'Hide';
+      }
+
+      resizeIframe();
+    });
+  }
+
+  function initFaqAccordion() {
+    if (!elements.faqList) {
+      return;
+    }
+
+    elements.faqList.addEventListener('click', function (event) {
+      var button = event.target.closest('.cgf-faq__question');
+
+      if (!button) {
+        return;
+      }
+
+      var expanded = button.getAttribute('aria-expanded') === 'true';
+      var answer = button.nextElementSibling;
+
+      button.setAttribute('aria-expanded', String(!expanded));
+
+      if (answer) {
+        answer.hidden = expanded;
+      }
+
+      resizeIframe();
+    });
   }
 })();
